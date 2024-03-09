@@ -100,7 +100,7 @@ there are many ethical and legal issues associated with human cloning, and of co
 ANSWER: genome
 DECISION:"""
 )
-example_choice_2 = AIMessagePromptTemplate.from_template("0")
+example_choice_2 = AIMessagePromptTemplate.from_template("5")
 example_summaries_3 = HumanMessagePromptTemplate.from_template(
     """QUESTION: What is the a mountain range in California?
 ========
@@ -112,14 +112,17 @@ base their elevation measurements on the average, or mean, sea level to make sur
 ANSWER: Adirondacks
 DECISION:"""
 )
-example_choice_3 = AIMessagePromptTemplate.from_template("0")
+example_choice_3 = AIMessagePromptTemplate.from_template("3")
 comparison_template = HumanMessagePromptTemplate.from_template(
-    """Given the following context (extracted parts of a long document), a question, and an answer, decide if the final answer is correct.
-You respond with a decision, either a 0, 1, or NA ONLY.
-(0 = answer is incorrect, 1 = answer is correct, NA = you do not know. Don't try to make up an answer.).
-If the question is not discussed in the provided context and the Answer says that the question is not discussed in the provided context, mark it as correct.
-A correct answer is in accordance with fact and truth, and is supported by the evidence found in the extracted parts of the context documents.
-An incorrect answer has information that is conflicting or irrelevant to the extracted parts of the context documents, or has typos of words in the text, or is a factually incorrect response to the questions.
+   """Given the following context (selected parts of marketing analytics across multiple platforms), a question, and an answer, decide if the final answer is accurate.
+You respond with a decision, between 1-10, or NA ONLY.
+10 - the answer directly addresses the question asked and provides a factually accurate and relevant response.
+
+5 - the answer partially addresses the question with some relevant information but lacks depth, accuracy, or contains minor factual inaccuracies.
+
+1 - the answer fails to address the question adequately, providing incorrect, irrelevant, or highly superficial information.
+
+A accurate answer is in accordance with fact and truth, answers the question posed, and is supported by the evidence found in the extracted parts of the context documents.
 QUESTION: {question}
 ========
 CONTEXT: {context}

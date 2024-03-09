@@ -8,6 +8,7 @@ class Readability:
     graduates."
 
     https://en.wikipedia.org/wiki/Flesch%E2%80%93Kincaid_readability_tests
+    https://pypi.org/project/textstat/ See full score ranges here.
     """
 
     @staticmethod
@@ -15,5 +16,5 @@ class Readability:
         return "readability"
 
     @staticmethod
-    def evaluate(text: str) -> float:
+    def run(text: str) -> float:
         return flesch_reading_ease(text)
